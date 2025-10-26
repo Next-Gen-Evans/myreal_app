@@ -1,16 +1,31 @@
-# myreal_app
+# 🟢 MyReal App
 
-A new Flutter project.
+**MyReal App** is a sleek Flutter application designed with a clean, dark-themed interface.  
+It allows users to **sign up or log in** using **email**, **phone number**, or **Google account** with a smooth and modern navigation flow.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+### 🌟 Welcome Screen
+- Simple landing page with two options:
+  - **Sign Up**
+  - **Log In**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🧾 Sign Up Flow
+- Three signup options:
+  - 📧 **Continue with Email** → Enter email → Create password → Continue
+  - 📱 **Continue with Phone Number** → Enter phone → Create password → Continue
+  - 🟠 **Continue with Google** → Choose which Google account to continue with
+- Smooth screen transitions
+- Back navigation enabled to return to the Welcome screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🔐 Login Flow
+- Similar to the signup page
+- Allows login using **email**, **phone number**, or **Google**
+- “Don’t have an account? Sign up” option at the bottom
+
+---
+
+## 🧱 Project Structure
+
