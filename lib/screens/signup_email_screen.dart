@@ -12,6 +12,14 @@ class SignupEmailScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.white70,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: const Text(
           'Create Account',
           style: TextStyle(color: Colors.white),
@@ -31,7 +39,7 @@ class SignupEmailScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             TextField(
               controller: emailController,
               style: const TextStyle(color: Colors.white),
@@ -46,7 +54,7 @@ class SignupEmailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
             const Text(
               "Create a password",
               style: TextStyle(
@@ -55,7 +63,7 @@ class SignupEmailScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             TextField(
               controller: passwordController,
               obscureText: true,
@@ -71,22 +79,34 @@ class SignupEmailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.greenAccent,
-                foregroundColor: Colors.black,
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+
+            const SizedBox(height: 30),
+
+            // ✅ Sign Up Button directly below password
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.greenAccent,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 ),
-              ),
-              onPressed: () {
-                // TODO: Save email and password logic
-              },
-              child: const Text(
-                "Sign Up",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Account created successfully!"),
+                      backgroundColor: Colors.greenAccent,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Sign Up",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
               ),
             ),
           ],
