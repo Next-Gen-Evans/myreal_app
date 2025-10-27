@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                 },
               ),
 
-              const Spacer(),
+              const SizedBox(height: 40),
 
               // Don’t have an account? Sign up
               Row(
@@ -106,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
             ],
           ),
         ),

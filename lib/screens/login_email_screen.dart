@@ -1,13 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'home_screen.dart';
+import 'forgot_password_screen.dart'; // 👈 Add this import
 
-class LoginEmailScreen extends StatelessWidget {
+class LoginEmailScreen extends StatefulWidget {
   const LoginEmailScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+  State<LoginEmailScreen> createState() => _LoginEmailScreenState();
+}
 
+class _LoginEmailScreenState extends State<LoginEmailScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  bool isLoading = false;
+
+  Future<void> loginUser() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      // ✅ Improved error messages
+      switch (e.code) {
+        case 'user-not-found':
+        case 'wrong-password':
+        case 'invalid-credential': // catches "supplied auth credential" error
+          errorMessage = 'Wrong email or password. Please try again.';
+          break;
+        case 'invalid-email':
+          errorMessage = 'Invalid email address format.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'This account has been disabled.';
+          break;
+        default:
+          errorMessage =
+              'Login failed. Please check your details and try again.';
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -27,9 +88,9 @@ class LoginEmailScreen extends StatelessWidget {
             const Text(
               'Welcome back 👋',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.greenAccent,
               ),
             ),
             const SizedBox(height: 20),
@@ -67,24 +128,31 @@ class LoginEmailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             GestureDetector(
-              onTap: () {
-                // TODO: Handle login logic
-              },
+              onTap: isLoading ? null : loginUser,
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  color: isLoading ? Colors.grey : Colors.greenAccent,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Center(
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
+                child: Center(
+                  child: isLoading
+                      ? const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            color: Colors.black,
+                            strokeWidth: 2,
+                          ),
+                        )
+                      : const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
                 ),
               ),
             ),
@@ -92,7 +160,12 @@ class LoginEmailScreen extends StatelessWidget {
             Center(
               child: TextButton(
                 onPressed: () {
-                  // TODO: Reset password navigation
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordScreen(),
+                    ),
+                  );
                 },
                 child: const Text(
                   'Forgot Password?',
@@ -104,5 +177,12 @@ class LoginEmailScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }
