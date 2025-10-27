@@ -41,46 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDZzhEAvVWntyPAEpaOc08dLJ5QaGAwA_c',
-    appId: '1:753329806297:web:63ce2340acc4844f9657c8',
-    messagingSenderId: '753329806297',
-    projectId: 'myreal-app-4ac73',
-    authDomain: 'myreal-app-4ac73.firebaseapp.com',
-    storageBucket: 'myreal-app-4ac73.firebasestorage.app',
+    apiKey: 'process.env.apiKey',
+    appId: 'process.env.appId',
+    messagingSenderId: 'process.env.messagingSenderId',
+    projectId: 'process.env.projectId',
+    authDomain: 'process.env.authDomain',
+    storageBucket: 'process.env.storageBucket',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBDnig2LaDPjNXhqL1BUqDPfWUwcjJtlo4',
-    appId: '1:753329806297:android:05477be626ea9fa19657c8',
-    messagingSenderId: '753329806297',
-    projectId: 'myreal-app-4ac73',
-    storageBucket: 'myreal-app-4ac73.firebasestorage.app',
+    apiKey: 'process.env.apiKey',
+    appId: 'process.env.appId',
+    messagingSenderId: 'process.env.messagingSenderId',
+    projectId: 'process.env.projectId',
+    storageBucket: 'process.env.storageBucket',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCEdFHfBk4F45RE7tQmKQtZzCC6UqTCeL4',
-    appId: '1:753329806297:ios:9a7f0ccf1dc32cb09657c8',
-    messagingSenderId: '753329806297',
-    projectId: 'myreal-app-4ac73',
-    storageBucket: 'myreal-app-4ac73.firebasestorage.app',
-    iosBundleId: 'com.example.myrealApp',
+    apiKey: 'process.env.apiKey',
+    appId: 'process.env.appId',
+    messagingSenderId: 'process.env.messagingSenderId',
+    projectId: 'process.env.projectId',
+    storageBucket: 'process.env.storageBucket',
+    iosBundleId: 'process.env.iosBundleId',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCEdFHfBk4F45RE7tQmKQtZzCC6UqTCeL4',
-    appId: '1:753329806297:ios:9a7f0ccf1dc32cb09657c8',
-    messagingSenderId: '753329806297',
-    projectId: 'myreal-app-4ac73',
-    storageBucket: 'myreal-app-4ac73.firebasestorage.app',
-    iosBundleId: 'com.example.myrealApp',
+    apiKey: 'process.env.apiKey',
+    appId: 'process.env.appId',
+    messagingSenderId: 'process.env.messagingSenderId',
+    projectId: 'process.env.projectId',
+    storageBucket: 'process.env.storageBucket',
+    iosBundleId: 'process.env.iosBundleId',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDZzhEAvVWntyPAEpaOc08dLJ5QaGAwA_c',
-    appId: '1:753329806297:web:7fa866c0d98a7c2e9657c8',
-    messagingSenderId: '753329806297',
-    projectId: 'myreal-app-4ac73',
-    authDomain: 'myreal-app-4ac73.firebaseapp.com',
-    storageBucket: 'myreal-app-4ac73.firebasestorage.app',
+    apiKey: 'process.env.apiKey',
+    appId: 'process.env.appId',
+    messagingSenderId: 'process.env.messagingSenderId',
+    projectId: 'process.env.projectId',
+    authDomain: 'process.env.authDomain',
+    storageBucket: 'process.env.storageBucket',
   );
 }
