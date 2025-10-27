@@ -27,36 +27,36 @@ Supports email sign-up, login, Google sign-in, and real password reset via email
 ## ⚙️ Setup
 1. Clone this repo:
    ```bash
-   git clone https://github.com/yourusername/myreal_app.git
+   git clone https://github.com/Next_Gen_Evans/myreal_app.git
    cd myreal_app
 
 2. Get dependencies:
 flutter pub get
 
-3. Add Firebase:
-   Go to Firebase Console
-   Create a new project → Add Android/iOS/Web app
-   Download google-services.json or GoogleService-Info.plist
-   Configure with:
+## Add Firebase
+- **Go to Firebase Console**
+- **Create a new project → Add Android/iOS/Web app**
+- **Download google-services.json or GoogleService-Info.plist**
+- **Configure with**
    flutterfire configure
 
-4. Run the app:
-   flutter run
+# Run the app:
+   **flutter run**
 
- 🔐 Password Reset
-    On the Login with Email screen, tap Forgot Password?
-    Enter your registered email address.
-    A password reset link will be sent to your inbox (check spam if not visible).
-    The link works in both debug and production modes.
+# 🔐 Password Reset
+- **On the Login with Email screen, tap Forgot Password?**
+- **Enter your registered email address.**
+- **A password reset link will be sent to your inbox (check spam if not visible).**
+- **The link works in both debug and production modes.**
 
-🧠 Notes
-   Fully works on real Android devices and emulators.
-   Uses the latest Firebase Authentication API.
-   Maintains a consistent dark and green accent design.
-   No UI overflow issues on mobile thanks to scrollable layout.
+# 🧠 Notes
+- **Fully works on real Android devices and emulators.**
+- **Uses the latest Firebase Authentication API.**
+- **Maintains a consistent dark and green accent design.**
+- **No UI overflow issues on mobile thanks to scrollable layout.**
 
-👨‍💻 Author
-   Evans Mutharimi Buongo
-   📍 Meru University of Science and Technology, Kenya 🇰🇪
-   💼 Developer | Innovator | Future Technologist | Software engineer
-   🌐 Passionate about tech that changes lives and builds a better world.
+# 👨‍💻 Author
+- **Evans Mutharimi Buongo**
+- **📍 Meru University of Science and Technology, Kenya 🇰🇪**
+- **💼 Developer | Innovator | Future Technologist | Software engineer**
+- **🌐 Passionate about tech that changes lives and builds a better world.**
