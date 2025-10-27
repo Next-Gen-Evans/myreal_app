@@ -1,31 +1,62 @@
-# 🟢 MyReal App
+# MyReal App 💚
 
-**MyReal App** is a sleek Flutter application designed with a clean, dark-themed interface.  
-It allows users to **sign up or log in** using **email**, **phone number**, or **Google account** with a smooth and modern navigation flow.
+A modern Flutter authentication app integrated with **Firebase Authentication**.  
+Supports email sign-up, login, Google sign-in, and real password reset via email.
 
 ---
 
 ## 🚀 Features
-
-### 🌟 Welcome Screen
-- Simple landing page with two options:
-  - **Sign Up**
-  - **Log In**
-
-### 🧾 Sign Up Flow
-- Three signup options:
-  - 📧 **Continue with Email** → Enter email → Create password → Continue
-  - 📱 **Continue with Phone Number** → Enter phone → Create password → Continue
-  - 🟠 **Continue with Google** → Choose which Google account to continue with
-- Smooth screen transitions
-- Back navigation enabled to return to the Welcome screen
-
-### 🔐 Login Flow
-- Similar to the signup page
-- Allows login using **email**, **phone number**, or **Google**
-- “Don’t have an account? Sign up” option at the bottom
+- Firebase Authentication (Email & Password, Google)
+- Forgot Password with real email reset link
+- Improved error messages for login failures
+- Fixed bottom overflow on mobile (scrollable layout)
+- Smooth navigation between login, signup, home, and forgot password pages
+- Modern dark UI with green accent theme
 
 ---
 
-## 🧱 Project Structure
+## 🛠️ Tech Stack
+- **Flutter**
+- **Dart**
+- **Firebase Core**
+- **Firebase Auth**
+- **Google Sign-In**
 
+---
+
+## ⚙️ Setup
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/yourusername/myreal_app.git
+   cd myreal_app
+
+2. Get dependencies:
+flutter pub get
+
+3. Add Firebase:
+   Go to Firebase Console
+   Create a new project → Add Android/iOS/Web app
+   Download google-services.json or GoogleService-Info.plist
+   Configure with:
+   flutterfire configure
+
+4. Run the app:
+   flutter run
+
+ 🔐 Password Reset
+    On the Login with Email screen, tap Forgot Password?
+    Enter your registered email address.
+    A password reset link will be sent to your inbox (check spam if not visible).
+    The link works in both debug and production modes.
+
+🧠 Notes
+   Fully works on real Android devices and emulators.
+   Uses the latest Firebase Authentication API.
+   Maintains a consistent dark and green accent design.
+   No UI overflow issues on mobile thanks to scrollable layout.
+
+👨‍💻 Author
+   Evans Mutharimi Buongo
+   📍 Meru University of Science and Technology, Kenya 🇰🇪
+   💼 Developer | Innovator | Future Technologist | Software engineer
+   🌐 Passionate about tech that changes lives and builds a better world.
