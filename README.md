@@ -60,3 +60,4 @@ flutter pub get
 - **📍 Meru University of Science and Technology, Kenya 🇰🇪**
 - **💼 Developer | Innovator | Future Technologist | Software engineer**
 - **🌐 Passionate about tech that changes lives and builds a better world.**
+- **🌐 Made with love by the community.**
