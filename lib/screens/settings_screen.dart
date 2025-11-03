@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      extendBodyBehindAppBar: true, // ✅ pushes the appbar fully to the top edge
+      appBar: AppBar(
+        toolbarHeight: 56, // same as Home page
+        backgroundColor: Colors.black,
+        elevation: 0,
+        titleSpacing: 0, // aligns title perfectly to the left
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/home');
+          },
+        ),
+        title: const Text('Settings', style: TextStyle(color: Colors.white)),
+        centerTitle: false,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 56), // keeps list below appbar
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.person, color: Colors.white70),
+              title: const Text(
+                'Account',
+                style: TextStyle(color: Colors.white),
+              ),
+              subtitle: const Text(
+                'Manage your account details',
+                style: TextStyle(color: Colors.white54),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications, color: Colors.white70),
+              title: const Text(
+                'Notifications',
+                style: TextStyle(color: Colors.white),
+              ),
+              subtitle: const Text(
+                'Customize notifications',
+                style: TextStyle(color: Colors.white54),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.dark_mode, color: Colors.white70),
+              title: const Text('Theme', style: TextStyle(color: Colors.white)),
+              subtitle: const Text(
+                'Toggle light/dark mode',
+                style: TextStyle(color: Colors.white54),
+              ),
+              onTap: () {},
+            ),
+            const Divider(color: Colors.white24),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.redAccent),
+              title: const Text(
+                'Logout',
+                style: TextStyle(color: Colors.redAccent),
+              ),
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/',
+                  (route) => false,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
