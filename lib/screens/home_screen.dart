@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final user = FirebaseAuth.instance.currentUser;
 
-  // Pages for navigation
   static final List<Widget> _pages = <Widget>[
     const _HomePage(),
     const ProjectsScreen(),
@@ -31,14 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Show “Dashboard” title only on Home page
     String? appBarTitle;
     if (_selectedIndex == 0) {
       appBarTitle = 'Dashboard';
     }
 
     return WillPopScope(
-      onWillPop: () async => false, // Prevent back navigation
+      onWillPop: () async => false,
       child: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -48,7 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
           title: appBarTitle != null
               ? Text(appBarTitle, style: const TextStyle(color: Colors.white))
               : null,
-          // Removed the logout button completely
         ),
         body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -68,9 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// ---------------------
-// 🏠 HOME PAGE CONTENT
-// ---------------------
 class _HomePage extends StatelessWidget {
   const _HomePage();
 

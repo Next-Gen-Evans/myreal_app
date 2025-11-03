@@ -25,8 +25,6 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-
-      // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Account created successfully!"),
@@ -34,8 +32,6 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
           behavior: SnackBarBehavior.floating,
         ),
       );
-
-      // Wait for 2 seconds then redirect to login
       await Future.delayed(const Duration(seconds: 2));
 
       if (!mounted) return;

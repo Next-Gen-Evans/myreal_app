@@ -33,9 +33,7 @@ class SignupGoogleScreen extends StatelessWidget {
         child: Icon(Icons.person, color: Colors.black),
       ),
       title: Text(email, style: const TextStyle(color: Colors.white)),
-      onTap: () {
-        // TODO: simulate Google sign-in
-      },
+      onTap: () {},
     );
   }
 }

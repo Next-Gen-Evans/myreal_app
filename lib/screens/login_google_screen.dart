@@ -32,9 +32,7 @@ class LoginGoogleScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             GestureDetector(
-              onTap: () {
-                // TODO: Handle google sign-in
-              },
+              onTap: () {},
               child: Container(
                 width: 250,
                 height: 55,

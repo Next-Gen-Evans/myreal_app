@@ -62,9 +62,7 @@ class LoginPhoneScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             GestureDetector(
-              onTap: () {
-                // TODO: Handle login with phone
-              },
+              onTap: () {},
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(

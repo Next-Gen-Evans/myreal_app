@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context); // 👈 Goes back to WelcomeScreen
+            Navigator.pop(context);
           },
         ),
       ),
@@ -25,7 +25,6 @@ class LoginScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
 
-              // EV round logo
               Container(
                 width: 100,
                 height: 100,
@@ -48,7 +47,6 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 80),
 
-              // Continue with Email
               _buildLoginButton(
                 icon: Icons.email_rounded,
                 text: 'Continue with Email',
@@ -58,8 +56,6 @@ class LoginScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
-
-              // Continue with Phone Number
               _buildLoginButton(
                 icon: Icons.phone_iphone_rounded,
                 text: 'Continue with Phone Number',
@@ -69,8 +65,6 @@ class LoginScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
-
-              // Continue with Google
               _buildLoginButton(
                 icon: Icons.g_mobiledata_rounded,
                 text: 'Continue with Google',
@@ -80,8 +74,6 @@ class LoginScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 40),
-
-              // Don’t have an account? Sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -114,7 +106,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  // Reusable button widget (same style as signup)
   Widget _buildLoginButton({
     required IconData icon,
     required String text,

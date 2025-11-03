@@ -14,7 +14,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool isSending = false;
 
-  // Animation controller for the checkmark
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -53,16 +52,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
     setState(() => isSending = true);
 
     try {
-      // 🔹 Send the real password reset email
       await _auth.sendPasswordResetEmail(email: emailController.text.trim());
 
-      // Trigger check animation
       _animationController.forward();
 
-      // Wait a bit to show animation
       await Future.delayed(const Duration(seconds: 2));
 
-      // Navigate back to login
       if (mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -148,7 +143,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen>
               ),
             ),
             const SizedBox(height: 40),
-            // Animated green check after successful email send
             Center(
               child: ScaleTransition(
                 scale: _animation,

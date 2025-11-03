@@ -13,12 +13,11 @@ class ProjectsScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // ✅ Takes user back to Home screen without extra padding
             Navigator.pushReplacementNamed(context, '/home');
           },
         ),
         title: const Text('Projects', style: TextStyle(color: Colors.white)),
-        centerTitle: false, // matches Dashboard title position
+        centerTitle: false,
       ),
       body: const Center(
         child: Text(

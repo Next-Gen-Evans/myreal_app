@@ -41,9 +41,6 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-
-            // 🔹 Your signup buttons (unchanged)
-            // Continue with Email
             _buildSignupButton(
               context,
               icon: Icons.email,
@@ -52,8 +49,6 @@ class SignupScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 15),
-
-            // Continue with Phone
             _buildSignupButton(
               context,
               icon: Icons.phone,
@@ -62,8 +57,6 @@ class SignupScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 15),
-
-            // Continue with Google
             _buildSignupButton(
               context,
               icon: Icons.g_mobiledata,
@@ -110,6 +103,7 @@ class SignupScreen extends StatelessWidget {
         width: 280,
         height: 50,
         decoration: BoxDecoration(
+          // ignore: deprecated_member_use
           color: Colors.greenAccent.withOpacity(0.2),
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.greenAccent, width: 1),

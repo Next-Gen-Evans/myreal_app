@@ -82,9 +82,7 @@ class SignupPhoneScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              onPressed: () {
-                // TODO: Save phone and password logic
-              },
+              onPressed: () {},
               child: const Text(
                 "Sign Up",
                 style: TextStyle(fontWeight: FontWeight.bold),

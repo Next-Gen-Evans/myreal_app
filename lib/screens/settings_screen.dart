@@ -7,12 +7,12 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      extendBodyBehindAppBar: true, // ✅ pushes the appbar fully to the top edge
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        toolbarHeight: 56, // same as Home page
+        toolbarHeight: 56,
         backgroundColor: Colors.black,
         elevation: 0,
-        titleSpacing: 0, // aligns title perfectly to the left
+        titleSpacing: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -23,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
         centerTitle: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 56), // keeps list below appbar
+        padding: const EdgeInsets.only(top: 56),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

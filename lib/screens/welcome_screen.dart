@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +12,6 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Round EV logo
               Container(
                 width: 100,
                 height: 100,
@@ -30,8 +31,6 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 80),
-
-              // Sign up button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
@@ -50,8 +49,6 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Log in button
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: Colors.white),

@@ -35,11 +35,10 @@ class _LoginEmailScreenState extends State<LoginEmailScreen> {
     } on FirebaseAuthException catch (e) {
       String errorMessage;
 
-      // ✅ Improved error messages
       switch (e.code) {
         case 'user-not-found':
         case 'wrong-password':
-        case 'invalid-credential': // catches "supplied auth credential" error
+        case 'invalid-credential':
           errorMessage = 'Wrong email or password. Please try again.';
           break;
         case 'invalid-email':
@@ -82,7 +81,6 @@ class _LoginEmailScreenState extends State<LoginEmailScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          // 👈 Added this to prevent overflow on phones
           padding: const EdgeInsets.all(30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
