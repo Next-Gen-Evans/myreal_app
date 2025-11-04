@@ -61,3 +61,7 @@ flutter pub get
 - **💼 Developer | Innovator | Future Technologist | Software engineer**
 - **🌐 Passionate about tech that changes lives and builds a better world.**
 - **🌐Continuous learning & innovation.**
+
+<div align="center">
+
+### 🌟 **Thanks for Visiting!** 🌟
