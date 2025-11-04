@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'notification_screen.dart'; // 👈 make sure this file exists
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -21,6 +22,21 @@ class SettingsScreen extends StatelessWidget {
         ),
         title: const Text('Settings', style: TextStyle(color: Colors.white)),
         centerTitle: false,
+        actions: [
+          // 🔔 Notification button at the top-right
+          IconButton(
+            icon: const Icon(Icons.notifications, color: Colors.white),
+            tooltip: 'Notifications',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 56),
@@ -49,7 +65,14 @@ class SettingsScreen extends StatelessWidget {
                 'Customize notifications',
                 style: TextStyle(color: Colors.white54),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationScreen(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.dark_mode, color: Colors.white70),

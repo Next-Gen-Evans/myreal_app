@@ -41,46 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'process.env.apiKey',
-    appId: 'process.env.appId',
-    messagingSenderId: 'process.env.messagingSenderId',
-    projectId: 'process.env.projectId',
-    authDomain: 'process.env.authDomain',
-    storageBucket: 'process.env.storageBucket',
+    apiKey: 'process.env.apiKey.w',
+    appId: 'process.env.appId.w',
+    messagingSenderId: 'process.env.messagingSenderId.w',
+    projectId: 'process.env.projectId.w',
+    authDomain: 'process.env.authDomain.w',
+    storageBucket: 'process.env.storageBucket.w',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'process.env.apiKey',
-    appId: 'process.env.appId',
-    messagingSenderId: 'process.env.messagingSenderId',
-    projectId: 'process.env.projectId',
-    storageBucket: 'process.env.storageBucket',
+    apiKey: 'process.env.apiKey.a',
+    appId: 'process.env.appId.a',
+    messagingSenderId: 'process.env.messagingSenderId.a',
+    projectId: 'process.env.projectId.a',
+    storageBucket: 'process.env.storageBucket.a',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'process.env.apiKey',
-    appId: 'process.env.appId',
-    messagingSenderId: 'process.env.messagingSenderId',
-    projectId: 'process.env.projectId',
-    storageBucket: 'process.env.storageBucket',
-    iosBundleId: 'process.env.iosBundleId',
+    apiKey: 'process.env.apiKey.i',
+    appId: 'process.env.appId.i',
+    messagingSenderId: 'process.env.messagingSenderId.i',
+    projectId: 'process.env.projectId.i',
+    storageBucket: 'process.env.storageBucket.i',
+    iosBundleId: 'process.env.iosBundleId.i',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'process.env.apiKey',
-    appId: 'process.env.appId',
-    messagingSenderId: 'process.env.messagingSenderId',
-    projectId: 'process.env.projectId',
-    storageBucket: 'process.env.storageBucket',
-    iosBundleId: 'process.env.iosBundleId',
+    apiKey: 'process.env.apiKey.m',
+    appId: 'process.env.appId.m',
+    messagingSenderId: 'process.env.messagingSenderId.m',
+    projectId: 'process.env.projectId.m',
+    storageBucket: 'process.env.storageBucket.m',
+    iosBundleId: 'process.env.iosBundleId.m',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'process.env.apiKey',
-    appId: 'process.env.appId',
-    messagingSenderId: 'process.env.messagingSenderId',
-    projectId: 'process.env.projectId',
-    authDomain: 'process.env.authDomain',
-    storageBucket: 'process.env.storageBucket',
+    apiKey: 'process.env.apiKey.ws',
+    appId: 'process.env.appId.ws',
+    messagingSenderId: 'process.env.messagingSenderId.ws',
+    projectId: 'process.env.projectId.ws',
+    authDomain: 'process.env.authDomain.ws',
+    storageBucket: 'process.env.storageBucket.ws',
   );
 }
