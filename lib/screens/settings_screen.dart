@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'notification_screen.dart'; // 👈 make sure this file exists
+import 'notification_screen.dart';
+import 'account_details_screen.dart'; // 👈 Add this import
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -23,7 +24,6 @@ class SettingsScreen extends StatelessWidget {
         title: const Text('Settings', style: TextStyle(color: Colors.white)),
         centerTitle: false,
         actions: [
-          // 🔔 Notification button at the top-right
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.white),
             tooltip: 'Notifications',
@@ -53,7 +53,14 @@ class SettingsScreen extends StatelessWidget {
                 'Manage your account details',
                 style: TextStyle(color: Colors.white54),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AccountDetailsScreen(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.notifications, color: Colors.white70),
