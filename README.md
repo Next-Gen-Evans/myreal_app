@@ -47,6 +47,7 @@ flutter pub get
 - **On the Login with Email screen, tap Forgot Password?**
 - **Enter your registered email address.**
 - **A password reset link will be sent to your inbox (check spam if not visible).**
+- **Reset password.**
 - **The link works in both debug and production modes.**
 
 # 🧠 Notes
