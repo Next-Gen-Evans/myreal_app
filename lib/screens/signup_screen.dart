@@ -13,7 +13,7 @@ class SignupScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context); // 👈 Goes back to WelcomeScreen
+            Navigator.pop(context);
           },
         ),
       ),
@@ -21,7 +21,7 @@ class SignupScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 🔹 Your logo
+            // Logo
             Container(
               height: 80,
               width: 80,
@@ -47,15 +47,13 @@ class SignupScreen extends StatelessWidget {
               text: 'Continue with Email',
               route: '/signup_email',
             ),
-
             const SizedBox(height: 15),
             _buildSignupButton(
               context,
               icon: Icons.phone,
-              text: 'Continue with Phone Number',
+              text: 'Continue with Phone',
               route: '/signup_phone',
             ),
-
             const SizedBox(height: 15),
             _buildSignupButton(
               context,
@@ -63,7 +61,6 @@ class SignupScreen extends StatelessWidget {
               text: 'Continue with Google',
               route: '/signup_google',
             ),
-
             const SizedBox(height: 40),
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, '/login'),
@@ -100,7 +97,7 @@ class SignupScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, route),
       child: Container(
-        width: 280,
+        padding: const EdgeInsets.symmetric(horizontal: 20), // smaller button
         height: 50,
         decoration: BoxDecoration(
           // ignore: deprecated_member_use
@@ -109,6 +106,7 @@ class SignupScreen extends StatelessWidget {
           border: Border.all(color: Colors.greenAccent, width: 1),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min, // wrap content
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, color: Colors.greenAccent),

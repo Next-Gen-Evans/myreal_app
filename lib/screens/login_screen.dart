@@ -12,9 +12,7 @@ class LoginScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: SafeArea(
@@ -25,9 +23,10 @@ class LoginScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
 
+              // Logo Circle
               Container(
-                width: 100,
-                height: 100,
+                width: 90,
+                height: 90,
                 decoration: const BoxDecoration(
                   color: Colors.greenAccent,
                   shape: BoxShape.circle,
@@ -37,67 +36,57 @@ class LoginScreen extends StatelessWidget {
                     'EV',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 36,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 2,
+                      letterSpacing: 1.5,
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 80),
+              const SizedBox(height: 60),
 
+              // Login Buttons
               _buildLoginButton(
                 icon: Icons.email_rounded,
                 text: 'Continue with Email',
-                onTap: () {
-                  Navigator.pushNamed(context, '/login_email');
-                },
+                onTap: () => Navigator.pushNamed(context, '/login_email'),
               ),
-
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               _buildLoginButton(
                 icon: Icons.phone_iphone_rounded,
-                text: 'Continue with Phone Number',
-                onTap: () {
-                  Navigator.pushNamed(context, '/login_phone');
-                },
+                text: 'Continue with Phone',
+                onTap: () => Navigator.pushNamed(context, '/login_phone'),
               ),
-
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               _buildLoginButton(
                 icon: Icons.g_mobiledata_rounded,
                 text: 'Continue with Google',
-                onTap: () {
-                  Navigator.pushNamed(context, '/login_google');
-                },
+                onTap: () => Navigator.pushNamed(context, '/login_google'),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 35),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     "Don't have an account?",
-                    style: TextStyle(color: Colors.white70, fontSize: 15),
+                    style: TextStyle(color: Colors.white70, fontSize: 14),
                   ),
                   const SizedBox(width: 6),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/signup');
-                    },
+                    onTap: () => Navigator.pushNamed(context, '/signup'),
                     child: const Text(
                       "Sign up",
                       style: TextStyle(
                         color: Colors.greenAccent,
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 14,
                       ),
                     ),
                   ),
                 ],
               ),
-
               const SizedBox(height: 20),
             ],
           ),
@@ -114,22 +103,27 @@ class LoginScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 55,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ), // space around text
+        height: 50,
         decoration: BoxDecoration(
+          // ignore: deprecated_member_use
           color: Colors.greenAccent.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(25),
           border: Border.all(color: Colors.greenAccent, width: 1.2),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min, // compact width
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: Colors.greenAccent, size: 24),
-            const SizedBox(width: 10),
+            Icon(icon, color: Colors.greenAccent, size: 22),
+            const SizedBox(width: 8),
             Text(
               text,
               style: const TextStyle(
                 color: Colors.greenAccent,
-                fontSize: 16,
+                fontSize: 15,
                 fontWeight: FontWeight.w600,
               ),
             ),
