@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myreal_app/screens/settings_screen.dart';
 import 'projects_screen.dart';
-import 'account_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-
-  final user = FirebaseAuth.instance.currentUser;
 
   static final List<Widget> _pages = <Widget>[
     const _HomePage(),
@@ -35,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBarTitle = 'Dashboard';
     }
 
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -72,30 +70,159 @@ class _HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
 
-    return Center(
+    return DefaultTabController(
+      length: 2,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.home, size: 80, color: Colors.greenAccent),
-          const SizedBox(height: 20),
-          const Text(
-            'Welcome Home!',
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          // ─────────────────────────────
+          // TOP DASHBOARD STATS
+          // ─────────────────────────────
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                _statCard("Projects", "12", Icons.folder_open),
+                const SizedBox(width: 12),
+                _statCard("Completed", "7", Icons.check_circle),
+                const SizedBox(width: 12),
+                _statCard("Pending", "5", Icons.timelapse),
+              ],
             ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            'Hello, ${user?.email ?? 'User'}!',
-            style: const TextStyle(fontSize: 18, color: Colors.white70),
+
+          // ─────────────────────────────
+          // TABS
+          // ─────────────────────────────
+          const TabBar(
+            indicatorColor: Colors.greenAccent,
+            labelColor: Colors.greenAccent,
+            unselectedLabelColor: Colors.white70,
+            tabs: [
+              Tab(icon: Icon(Icons.dashboard), text: "Overview"),
+              Tab(icon: Icon(Icons.list), text: "Tasks"),
+            ],
           ),
-          const SizedBox(height: 20),
-          const Text(
-            'You have successfully logged in to MyReal App',
-            style: TextStyle(fontSize: 16, color: Colors.white54),
-            textAlign: TextAlign.center,
+
+          // ─────────────────────────────
+          // TAB CONTENT
+          // ─────────────────────────────
+          Expanded(
+            child: TabBarView(
+              children: [
+                // OVERVIEW TAB
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      const Icon(
+                        Icons.home,
+                        size: 80,
+                        color: Colors.greenAccent,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Hello, ${user?.email ?? 'User'}!',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Quick Overview of Your Activity',
+                        style: TextStyle(fontSize: 16, color: Colors.white70),
+                      ),
+                      const SizedBox(height: 20),
+                      _placeholderCard("Recent Activity"),
+                      _placeholderCard("Notifications"),
+                      _placeholderCard("Your Projects"),
+                    ],
+                  ),
+                ),
+
+                // TASKS TAB (UI only)
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      const Icon(
+                        Icons.task_alt,
+                        size: 80,
+                        color: Colors.greenAccent,
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Tasks Coming Soon',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      _placeholderCard("Pending Tasks"),
+                      _placeholderCard("Upcoming Deadlines"),
+                      _placeholderCard("Completed Tasks"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ─────────────────────────────
+  // UI COMPONENTS
+  // ─────────────────────────────
+  Widget _statCard(String title, String value, IconData icon) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: Colors.grey.shade900,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, color: Colors.greenAccent, size: 26),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 14, color: Colors.white70),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _placeholderCard(String title) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade900,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.circle, color: Colors.greenAccent, size: 12),
+          const SizedBox(width: 12),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
         ],
       ),
