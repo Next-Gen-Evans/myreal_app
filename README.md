@@ -58,10 +58,7 @@ flutter pub get
 
 # 👨‍💻 Author
 - **Evans Mutharimi Buongo**
-- **📍 Meru University of Science and Technology, Kenya 🇰🇪**
 - **💼 Developer | Innovator | Future Technologist | Software engineer**
-- **🌐 Passionate about tech that changes lives and builds a better world.**
-- **🌐Continuous learning & innovation.**
 
 <div align="center">
 
