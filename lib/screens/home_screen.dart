@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myreal_app/screens/settings_screen.dart';
 import 'projects_screen.dart';
+import 'notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBarTitle = 'Dashboard';
     }
 
-    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -74,9 +74,6 @@ class _HomePage extends StatelessWidget {
       length: 2,
       child: Column(
         children: [
-          // ─────────────────────────────
-          // TOP DASHBOARD STATS
-          // ─────────────────────────────
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Row(
@@ -90,9 +87,6 @@ class _HomePage extends StatelessWidget {
             ),
           ),
 
-          // ─────────────────────────────
-          // TABS
-          // ─────────────────────────────
           const TabBar(
             indicatorColor: Colors.greenAccent,
             labelColor: Colors.greenAccent,
@@ -103,13 +97,9 @@ class _HomePage extends StatelessWidget {
             ],
           ),
 
-          // ─────────────────────────────
-          // TAB CONTENT
-          // ─────────────────────────────
           Expanded(
             child: TabBarView(
               children: [
-                // OVERVIEW TAB
                 SingleChildScrollView(
                   child: Column(
                     children: [
@@ -133,14 +123,36 @@ class _HomePage extends StatelessWidget {
                         style: TextStyle(fontSize: 16, color: Colors.white70),
                       ),
                       const SizedBox(height: 20),
+
                       _placeholderCard("Recent Activity"),
-                      _placeholderCard("Notifications"),
-                      _placeholderCard("Your Projects"),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NotificationScreen(),
+                            ),
+                          );
+                        },
+                        child: _placeholderCard("Notifications"),
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProjectsScreen(),
+                            ),
+                          );
+                        },
+                        child: _placeholderCard("Your Projects"),
+                      ),
                     ],
                   ),
                 ),
 
-                // TASKS TAB (UI only)
                 SingleChildScrollView(
                   child: Column(
                     children: [
@@ -174,9 +186,6 @@ class _HomePage extends StatelessWidget {
     );
   }
 
-  // ─────────────────────────────
-  // UI COMPONENTS
-  // ─────────────────────────────
   Widget _statCard(String title, String value, IconData icon) {
     return Expanded(
       child: Container(
