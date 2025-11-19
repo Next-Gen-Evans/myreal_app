@@ -24,7 +24,6 @@ class AccountDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile Info Section
             const CircleAvatar(
               radius: 40,
               backgroundColor: Colors.white24,
@@ -43,7 +42,6 @@ class AccountDetailsScreen extends StatelessWidget {
 
             const Divider(color: Colors.white24, height: 40),
 
-            // Change Email
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.email_outlined, color: Colors.white70),
@@ -59,7 +57,6 @@ class AccountDetailsScreen extends StatelessWidget {
             ),
             const Divider(color: Colors.white24),
 
-            // Change Password
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.lock_outline, color: Colors.white70),
@@ -89,11 +86,14 @@ class AccountDetailsScreen extends StatelessWidget {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (ctx) => AlertDialog(
-                    backgroundColor: Colors.grey[900],
+                  builder: (context) => AlertDialog(
+                    backgroundColor: Colors.grey.shade900,
                     title: const Text(
                       'Delete Account',
-                      style: TextStyle(color: Colors.redAccent),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     content: const Text(
                       'Are you sure you want to delete your account? This action cannot be undone.',
@@ -101,15 +101,17 @@ class AccountDetailsScreen extends StatelessWidget {
                     ),
                     actions: [
                       TextButton(
-                        onPressed: () => Navigator.pop(ctx),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         child: const Text(
                           'Cancel',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.greenAccent),
                         ),
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(ctx);
+                          Navigator.pop(context);
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Account deleted')),
                           );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'notification_screen.dart';
-import 'account_details_screen.dart'; // 👈 Add this import
+import 'account_details_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -38,6 +38,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ],
       ),
+
       body: Padding(
         padding: const EdgeInsets.only(top: 56),
         child: ListView(
@@ -62,6 +63,7 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
+
             ListTile(
               leading: const Icon(Icons.notifications, color: Colors.white70),
               title: const Text(
@@ -81,6 +83,7 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
+
             ListTile(
               leading: const Icon(Icons.dark_mode, color: Colors.white70),
               title: const Text('Theme', style: TextStyle(color: Colors.white)),
@@ -90,7 +93,9 @@ class SettingsScreen extends StatelessWidget {
               ),
               onTap: () {},
             ),
+
             const Divider(color: Colors.white24),
+
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.redAccent),
               title: const Text(
@@ -98,10 +103,46 @@ class SettingsScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.redAccent),
               ),
               onTap: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  '/',
-                  (route) => false,
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    backgroundColor: Colors.grey.shade900,
+                    title: const Text(
+                      'Logout',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    content: const Text(
+                      'Are you sure you want to logout?',
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context); // Cancel → close dialog
+                        },
+                        child: const Text(
+                          'Cancel',
+                          style: TextStyle(color: Colors.greenAccent),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            '/',
+                            (route) => false,
+                          );
+                        },
+                        child: const Text(
+                          'OK',
+                          style: TextStyle(color: Colors.redAccent),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
