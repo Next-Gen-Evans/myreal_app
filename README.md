@@ -2,7 +2,6 @@
 
 
 
-
 A modern Flutter authentication app integrated with **Firebase Authentication**.  
 Supports email sign-up, login, Google sign-in, and real password reset via email.
 
